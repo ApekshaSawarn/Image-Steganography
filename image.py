@@ -3,9 +3,6 @@ import numpy as np
 import resampling
 from PIL import Image
 
-#it convert data in binary formate
-
-
 def data2binary(data):
     if type(data) == str:
         p = ''.join([format(ord(i), '08b')for i in data])
@@ -17,12 +14,11 @@ def data2binary(data):
 # hide data in given img
 
 def hidedata(img, data):
-    data += "$$"                                   #'$$'--> secrete key
+    data += "$$"                                   
     d_index = 0
     b_data = data2binary(data)
     len_data = len(b_data)
 
- #iterate pixels from image and update pixel values
 
     for value in img:
         for pix in value:
@@ -60,7 +56,6 @@ def encode():
     else:
         img1.save(enc_img)
 
-# decoding
 
 def find_data(img):
     bin_data = ""
